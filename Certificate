@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace FormForAddingWorkers
+{
+    public partial class Справка : Form
+    {
+        public Справка()
+        {
+            InitializeComponent();
+
+            dataGridView1.ColumnCount = 4;
+            dataGridView1.RowHeadersVisible = false;
+
+            dataGridView1.Columns[0].HeaderText = "ФИО";
+            dataGridView1.Columns[1].HeaderText = "Наименование работы";
+            dataGridView1.Columns[2].HeaderText = "Выработка";
+            dataGridView1.Columns[3].HeaderText = "Расценка";
+
+            dataGridView1.AutoResizeColumns();
+
+            int col = Rab.myArr.Count();
+            dataGridView1.RowCount = col;
+            for (int i = 0; i < col; i++)
+            {
+                dataGridView1.Rows[i].Cells[0].Value = Rab.myArr[i].FIO;
+                dataGridView1.Rows[i].Cells[1].Value = Rab.myArr[i].JobTitle;
+                dataGridView1.Rows[i].Cells[2].Value = Rab.myArr[i].Production;
+                dataGridView1.Rows[i].Cells[3].Value = Rab.myArr[i].Pricing;
+            }
+        }
+
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+            int ind = dataGridView1.CurrentRow.Index;
+            FIOTextBox.Text = Rab.myArr[ind].FIO;
+            JobTitleTextBox.Text = Rab.myArr[ind].JobTitle;
+            ProductionTextBox.Text = Rab.myArr[ind].Production.ToString();
+            PricingTextBox.Text = Rab.myArr[ind].Pricing.ToString();
+        }
+
+        private void Справка_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
