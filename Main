@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FormForAddingWorkers
+{
+    class Rab
+    {
+        public struct Data
+        {
+            private string fio;
+            private string jobtitle;
+            private int production;
+            private int pricing;
+            public string FIO
+            {
+                get { return fio; }
+                set { fio = value; }
+            }
+            public string JobTitle
+            {
+                get { return jobtitle; }
+                set { jobtitle = value; }
+            }
+            public int Production
+            {
+                get { return production; }
+                set { production = value; }
+            }
+            public int Pricing
+            {
+                get { return pricing; }
+                set { pricing = value; }
+            }
+            public Data(string FaImOt, string JT, int Prod, int Pri)
+            {
+                fio = FaImOt;
+                jobtitle = JT;
+                production = Prod;
+                pricing = Pri;
+            }
+        }
+        public static List<Data> myArr = new List<Data>();
+    }
+}
